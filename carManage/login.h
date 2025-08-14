@@ -2,6 +2,8 @@
 #define LOGIN_H
 
 #include <QWidget>
+#include "admin.h"
+#include "user.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,7 +19,14 @@ public:
     login(QWidget *parent = nullptr);
     ~login();
 
+private slots:
+    void on_button_user_clicked();
+
+    void on_button_admin_clicked();
+
 private:
     Ui::login *ui;
+    admin *admin_page;
+    user *user_page;
 };
 #endif // LOGIN_H
