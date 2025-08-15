@@ -2,7 +2,7 @@
 #define ADMIN_H
 
 #include <QMainWindow>
-
+#include "carsql.h"
 namespace Ui {
 class admin;
 }
@@ -21,6 +21,7 @@ private slots:
 
 private:
     Ui::admin *ui;
+    carSql* m_ptrSql;
 };
 
 #endif // ADMIN_H

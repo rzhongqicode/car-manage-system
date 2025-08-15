@@ -22,9 +22,20 @@ public:
     explicit carSql(QObject *parent = nullptr);
 
     //定义一个静态指针
-    static carSql *ptrcarSql;
+    static carSql* ptrcarSql;
+
+    static carSql* getInstance(){
+        if(nullptr == ptrcarSql){
+            ptrcarSql = new carSql;
+        }
+        return ptrcarSql;
+    }
+
     //初始化方法
     void init();
+
+    //获取所有车辆信息
+    QList<carInfo> getAllInfo();
 
     //查询车辆数量
     uint32_t getCarCnt();

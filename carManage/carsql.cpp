@@ -10,13 +10,12 @@ carSql* carSql::ptrcarSql = nullptr;
 carSql::carSql(QObject *parent)
     : QObject{parent}
 {
-    init();
-
-    carInfo s;
-    s.license = "鲁H";
-    s.model = "audi";
-    s.color = "black";
-    s.year = 2025;
+    // init();
+    // carInfo s;
+    // s.license = "鲁H";
+    // s.model = "audi";
+    // s.color = "black";
+    // s.year = 2025;
     // addCar(s);//测试添加功能成功
     // QSqlQuery q("", my_database);
     // q.exec("INSERT INTO car VALUES ('1234', '222', 2020, '333')");
@@ -28,10 +27,14 @@ carSql::carSql(QObject *parent)
     // QString carlicence = "123";//测试删除车辆信息成功
     // qDebug()<<delCar(carlicence);
     // qDebug()<<updateCar(s);//测试更新车辆信息成功
-
+    // QList<carInfo> l = getAllInfo();//测试获取所有车辆信息成功
+    // for(int i = 0; i < l.length(); i++){
+    //     qDebug()<<l[i].year;
+    // }
 
 }
 
+//init方法需要在创建一个carSql对象之后单独调用
 void carSql::init()
 {
     if(QSqlDatabase::drivers().isEmpty())
@@ -52,6 +55,23 @@ void carSql::init()
         // QMessageBox::warning(nullptr, tr("Unable to open database"),tr("Try again"));
         qDebug()<<"Unable to open database";
     }
+}
+
+QList<carInfo> carSql::getAllInfo()
+{
+    QSqlQuery sql("", my_database);
+    QString str = QString("SELECT * FROM car");
+    sql.exec(str);
+    QList<carInfo> l;
+    carInfo info;
+    while(sql.next()){
+        info.license = sql.value(0).toString();
+        info.model = sql.value(1).toString();
+        info.year = sql.value(2).toUInt();
+        info.color = sql.value(3).toString();
+        l.push_back(info);
+    }
+    return l;
 }
 
 uint32_t carSql::getCarCnt()
