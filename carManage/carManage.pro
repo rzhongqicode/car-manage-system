@@ -1,4 +1,5 @@
 QT       += core gui
+QT += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,12 +11,14 @@ CONFIG += c++17
 
 SOURCES += \
     admin.cpp \
+    carsql.cpp \
     main.cpp \
     login.cpp \
     user.cpp
 
 HEADERS += \
     admin.h \
+    carsql.h \
     login.h \
     user.h
 
