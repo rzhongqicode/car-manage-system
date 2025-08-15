@@ -4,6 +4,9 @@
 #include <QCoreApplication>
 #include <QSqlQuery>
 
+//类的静态成员在类外初始化
+carSql* carSql::ptrcarSql = nullptr;
+
 carSql::carSql(QObject *parent)
     : QObject{parent}
 {
@@ -24,7 +27,7 @@ carSql::carSql(QObject *parent)
     // }
     // QString carlicence = "123";//测试删除车辆信息成功
     // qDebug()<<delCar(carlicence);
-    qDebug()<<updateCar(s);
+    // qDebug()<<updateCar(s);//测试更新车辆信息成功
 
 
 }

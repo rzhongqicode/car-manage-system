@@ -38,7 +38,7 @@ public:
     QLabel *label_2;
     QPushButton *pushButton;
     QTableWidget *tableWidget;
-    QWidget *widget1;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
@@ -101,41 +101,66 @@ public:
         horizontalLayout->setStretch(1, 1);
         horizontalLayout->setStretch(2, 1);
         tableWidget = new QTableWidget(centralwidget);
-        if (tableWidget->columnCount() < 2)
-            tableWidget->setColumnCount(2);
+        if (tableWidget->columnCount() < 4)
+            tableWidget->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        if (tableWidget->rowCount() < 1)
+            tableWidget->setRowCount(1);
+        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        tableWidget->setVerticalHeaderItem(0, __qtablewidgetitem4);
+        QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        tableWidget->setItem(0, 0, __qtablewidgetitem5);
+        QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        tableWidget->setItem(0, 1, __qtablewidgetitem6);
+        QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        tableWidget->setItem(0, 2, __qtablewidgetitem7);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        tableWidget->setItem(0, 3, __qtablewidgetitem8);
         tableWidget->setObjectName("tableWidget");
         tableWidget->setGeometry(QRect(40, 110, 731, 471));
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(40, 60, 731, 41));
-        horizontalLayout_3 = new QHBoxLayout(widget1);
+        tableWidget->horizontalHeader()->setVisible(true);
+        tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
+        tableWidget->horizontalHeader()->setMinimumSectionSize(30);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(182);
+        tableWidget->horizontalHeader()->setStretchLastSection(true);
+        tableWidget->verticalHeader()->setVisible(false);
+        tableWidget->verticalHeader()->setMinimumSectionSize(23);
+        tableWidget->verticalHeader()->setDefaultSectionSize(36);
+        tableWidget->verticalHeader()->setStretchLastSection(false);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(40, 60, 731, 41));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(widget1);
+        pushButton_2 = new QPushButton(layoutWidget);
         pushButton_2->setObjectName("pushButton_2");
 
         horizontalLayout_3->addWidget(pushButton_2);
 
-        pushButton_3 = new QPushButton(widget1);
+        pushButton_3 = new QPushButton(layoutWidget);
         pushButton_3->setObjectName("pushButton_3");
 
         horizontalLayout_3->addWidget(pushButton_3);
 
-        pushButton_4 = new QPushButton(widget1);
+        pushButton_4 = new QPushButton(layoutWidget);
         pushButton_4->setObjectName("pushButton_4");
 
         horizontalLayout_3->addWidget(pushButton_4);
 
-        lineEdit = new QLineEdit(widget1);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName("lineEdit");
 
         horizontalLayout_3->addWidget(lineEdit);
 
-        pushButton_5 = new QPushButton(widget1);
+        pushButton_5 = new QPushButton(layoutWidget);
         pushButton_5->setObjectName("pushButton_5");
 
         horizontalLayout_3->addWidget(pushButton_5);
@@ -162,9 +187,28 @@ public:
         label_2->setText(QCoreApplication::translate("admin", "\347\256\241\347\220\206\345\221\230\347\225\214\351\235\242", nullptr));
         pushButton->setText(QCoreApplication::translate("admin", "\351\200\200\345\207\272", nullptr));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("admin", "\346\226\260\345\273\272\345\210\227", nullptr));
+        ___qtablewidgetitem->setText(QCoreApplication::translate("admin", "\350\275\246\347\211\214\345\217\267", nullptr));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("admin", "\346\226\260\345\273\272\345\210\227", nullptr));
+        ___qtablewidgetitem1->setText(QCoreApplication::translate("admin", "\345\236\213\345\217\267", nullptr));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QCoreApplication::translate("admin", "\345\271\264\344\273\275", nullptr));
+        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        ___qtablewidgetitem3->setText(QCoreApplication::translate("admin", "\351\242\234\350\211\262", nullptr));
+        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->verticalHeaderItem(0);
+        ___qtablewidgetitem4->setText(QCoreApplication::translate("admin", "\346\226\260\345\273\272\350\241\214", nullptr));
+
+        const bool __sortingEnabled = tableWidget->isSortingEnabled();
+        tableWidget->setSortingEnabled(false);
+        QTableWidgetItem *___qtablewidgetitem5 = tableWidget->item(0, 0);
+        ___qtablewidgetitem5->setText(QCoreApplication::translate("admin", "\351\262\201HC2I2Y", nullptr));
+        QTableWidgetItem *___qtablewidgetitem6 = tableWidget->item(0, 1);
+        ___qtablewidgetitem6->setText(QCoreApplication::translate("admin", "\345\245\224\350\205\276", nullptr));
+        QTableWidgetItem *___qtablewidgetitem7 = tableWidget->item(0, 2);
+        ___qtablewidgetitem7->setText(QCoreApplication::translate("admin", "2020", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = tableWidget->item(0, 3);
+        ___qtablewidgetitem8->setText(QCoreApplication::translate("admin", "\347\231\275\350\211\262", nullptr));
+        tableWidget->setSortingEnabled(__sortingEnabled);
+
         pushButton_2->setText(QCoreApplication::translate("admin", "\346\267\273\345\212\240", nullptr));
         pushButton_3->setText(QCoreApplication::translate("admin", "\345\210\240\351\231\244", nullptr));
         pushButton_4->setText(QCoreApplication::translate("admin", "\344\277\256\346\224\271", nullptr));

@@ -18,6 +18,7 @@ class login : public QWidget
 public:
     login(QWidget *parent = nullptr);
     ~login();
+    // virtual void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void on_button_user_clicked();
@@ -28,5 +29,6 @@ private:
     Ui::login *ui;
     admin *admin_page;
     user *user_page;
+    // uint8_t state; //0:登陆界面，1：管理员界面，2：用户界面
 };
 #endif // LOGIN_H

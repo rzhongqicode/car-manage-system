@@ -21,6 +21,8 @@ class carSql : public QObject
 public:
     explicit carSql(QObject *parent = nullptr);
 
+    //定义一个静态指针
+    static carSql *ptrcarSql;
     //初始化方法
     void init();
 
