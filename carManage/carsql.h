@@ -6,7 +6,7 @@
 
 
 //定义车辆类
-class car{
+class carInfo{
 public:
     QString license;
     QString model;
@@ -24,22 +24,26 @@ public:
     //初始化方法
     void init();
 
-    // //查询车辆数量
-    // uint32_t getCarCnt();
+    //查询车辆数量
+    uint32_t getCarCnt();
 
-    // //增加车辆
-    // bool addCar(car carInfo);
+    //查询第几页的车辆信息
+    QList<carInfo> GetPageCar(uint32_t page, uint32_t page_cnt);
 
-    // //删除车辆(通过车牌号删除)
-    // bool delCar(QString carlicense);
+    //增加车辆
+    bool addCar(carInfo this_car);
 
-    // //修改车辆信息
-    // bool updataCar(car carInfo);
+    //删除车辆(通过车牌号删除)
+    bool delCar(QString carlicense);
+
+    //修改车辆信息
+    bool updataCar(carInfo this_car);
 
 signals:
 
 private:
     QSqlDatabase my_database;
+    // QSqlQuery q;
 };
 
 #endif // CARSQL_H
