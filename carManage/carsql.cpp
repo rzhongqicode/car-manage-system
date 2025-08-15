@@ -11,10 +11,16 @@ carSql::carSql(QObject *parent)
 
     carInfo s;
     s.license = "鲁H";
-    // addCar(s);
+    // addCar(s);//测试添加功能成功
     // QSqlQuery q("", my_database);
     // q.exec("INSERT INTO car VALUES ('1234', '222', 2020, '333')");
-    qDebug()<<getCarCnt();
+    // qDebug()<<getCarCnt();//测试获取车辆数函数成功
+    // QList<carInfo> l = GetPageCar(2,2);//测试获取第几页的车辆成功
+    // for(int i = 0; i < l.length(); i++){
+    //     qDebug()<<l[i].year;
+    // }
+    QString carlicence = "123";
+    qDebug()<<delCar(carlicence);
 
 }
 
@@ -52,6 +58,25 @@ uint32_t carSql::getCarCnt()
     return cnt;
 }
 
+QList<carInfo> carSql::GetPageCar(uint32_t page, uint32_t page_cnt)
+{
+    QList<carInfo> l;
+    QSqlQuery sql("", my_database);
+    QString str = QString("SELECT * FROM car order by 年份 limit %1 offset %2")
+                      .arg(page_cnt)
+                      .arg((page-1)*page_cnt);
+    sql.exec(str);
+    carInfo info;
+    while(sql.next()){
+        info.license = sql.value(0).toString();
+        info.model = sql.value(1).toString();
+        info.year = sql.value(2).toUInt();
+        info.color = sql.value(3).toString();
+        l.push_back(info);
+    }
+    return l;
+}
+
 bool carSql::addCar(carInfo this_car)
 {
     QSqlQuery sql("", my_database);
@@ -59,5 +84,12 @@ bool carSql::addCar(carInfo this_car)
                       .arg(this_car.model)
                       .arg(this_car.year)
                       .arg(this_car.color);
+    return sql.exec(str);
+}
+
+bool carSql::delCar(QString carlicense)
+{
+    QSqlQuery sql("", my_database);
+    QString str = QString("DELETE FROM car WHERE 车牌号 = '%1'").arg(carlicense);
     return sql.exec(str);
 }
