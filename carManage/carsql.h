@@ -36,8 +36,11 @@ public:
     //删除车辆(通过车牌号删除)
     bool delCar(QString carlicense);
 
+    //清空车辆信息
+    bool clearAllCar();
+
     //修改车辆信息
-    bool updataCar(carInfo this_car);
+    bool updateCar(carInfo this_car);
 
 signals:
 

@@ -11,6 +11,9 @@ carSql::carSql(QObject *parent)
 
     carInfo s;
     s.license = "鲁H";
+    s.model = "audi";
+    s.color = "black";
+    s.year = 2025;
     // addCar(s);//测试添加功能成功
     // QSqlQuery q("", my_database);
     // q.exec("INSERT INTO car VALUES ('1234', '222', 2020, '333')");
@@ -19,8 +22,10 @@ carSql::carSql(QObject *parent)
     // for(int i = 0; i < l.length(); i++){
     //     qDebug()<<l[i].year;
     // }
-    QString carlicence = "123";
-    qDebug()<<delCar(carlicence);
+    // QString carlicence = "123";//测试删除车辆信息成功
+    // qDebug()<<delCar(carlicence);
+    qDebug()<<updateCar(s);
+
 
 }
 
@@ -91,5 +96,22 @@ bool carSql::delCar(QString carlicense)
 {
     QSqlQuery sql("", my_database);
     QString str = QString("DELETE FROM car WHERE 车牌号 = '%1'").arg(carlicense);
+    return sql.exec(str);
+}
+
+bool carSql::clearAllCar()
+{
+    QSqlQuery sql("", my_database);
+    return sql.exec("DELETE FROM car");
+}
+
+bool carSql::updateCar(carInfo this_car)
+{
+    QSqlQuery sql("", my_database);
+    QString str = QString("update car set 年份 = %1, 颜色 = '%2', 型号 = '%3' where 车牌号 = '%4'")
+                      .arg(this_car.year)
+                      .arg(this_car.color)
+                      .arg(this_car.model)
+                      .arg(this_car.license);
     return sql.exec(str);
 }
