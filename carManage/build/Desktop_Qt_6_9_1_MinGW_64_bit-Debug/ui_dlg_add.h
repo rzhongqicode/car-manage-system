@@ -42,7 +42,9 @@ public:
     {
         if (Dlg_Add->objectName().isEmpty())
             Dlg_Add->setObjectName("Dlg_Add");
-        Dlg_Add->resize(219, 209);
+        Dlg_Add->resize(220, 200);
+        Dlg_Add->setMinimumSize(QSize(220, 200));
+        Dlg_Add->setMaximumSize(QSize(220, 200));
         gridLayout_2 = new QGridLayout(Dlg_Add);
         gridLayout_2->setObjectName("gridLayout_2");
         label_3 = new QLabel(Dlg_Add);

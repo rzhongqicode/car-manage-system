@@ -74,3 +74,18 @@ void admin::on_pushButton_3_clicked()
     }
 }
 
+
+
+void admin::on_pushButton_4_clicked()
+{
+    int i = ui->tableWidget->currentRow();
+    carInfo original_info;
+    original_info.license = ui->tableWidget->item(i,1)->text();
+    original_info.model = ui->tableWidget->item(i,2)->text();
+    original_info.year = ui->tableWidget->item(i,3)->text().toInt();
+    original_info.color = ui->tableWidget->item(i,4)->text();
+    m_dlgUpdate.setState(original_info);
+    m_dlgUpdate.exec();
+    updateTable();
+}
+

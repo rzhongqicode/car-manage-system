@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "carsql.h"
 #include "dlg_add.h"
+#include "dlg_update.h"
 namespace Ui {
 class admin;
 }
@@ -26,10 +27,13 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::admin *ui;
     carSql* m_ptrSql;
     Dlg_Add m_dlgAdd;
+    dlg_update m_dlgUpdate;
     bool isAdd;
 };
 

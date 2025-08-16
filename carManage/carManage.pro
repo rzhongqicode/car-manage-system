@@ -13,6 +13,7 @@ SOURCES += \
     admin.cpp \
     carsql.cpp \
     dlg_add.cpp \
+    dlg_update.cpp \
     main.cpp \
     login.cpp \
     user.cpp
@@ -21,12 +22,14 @@ HEADERS += \
     admin.h \
     carsql.h \
     dlg_add.h \
+    dlg_update.h \
     login.h \
     user.h
 
 FORMS += \
     admin.ui \
     dlg_add.ui \
+    dlg_update.ui \
     login.ui \
     user.ui
 
