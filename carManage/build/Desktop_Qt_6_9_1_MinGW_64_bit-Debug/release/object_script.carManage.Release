@@ -1,10 +1,12 @@
 release/admin.o
 release/carsql.o
+release/dlg_add.o
 release/main.o
 release/login.o
 release/user.o
 release/qrc_res.o
 release/moc_admin.o
 release/moc_carsql.o
+release/moc_dlg_add.o
 release/moc_login.o
 release/moc_user.o

@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>管理员界面</string>
   </property>
   <property name="windowIcon">
    <iconset resource="res.qrc">
@@ -128,31 +128,6 @@
     <attribute name="verticalHeaderStretchLastSection">
      <bool>false</bool>
     </attribute>
-    <column>
-     <property name="text">
-      <string>序号</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>车牌号</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>型号</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>年份</string>
-     </property>
-    </column>
-    <column>
-     <property name="text">
-      <string>颜色</string>
-     </property>
-    </column>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">

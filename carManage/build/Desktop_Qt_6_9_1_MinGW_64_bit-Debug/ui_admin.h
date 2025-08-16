@@ -101,18 +101,6 @@ public:
         horizontalLayout->setStretch(1, 1);
         horizontalLayout->setStretch(2, 1);
         tableWidget = new QTableWidget(centralwidget);
-        if (tableWidget->columnCount() < 5)
-            tableWidget->setColumnCount(5);
-        QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
-        QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
-        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
-        QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
-        QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(4, __qtablewidgetitem4);
         tableWidget->setObjectName("tableWidget");
         tableWidget->setGeometry(QRect(40, 110, 731, 471));
         tableWidget->horizontalHeader()->setVisible(true);
@@ -172,20 +160,10 @@ public:
 
     void retranslateUi(QMainWindow *admin)
     {
-        admin->setWindowTitle(QCoreApplication::translate("admin", "MainWindow", nullptr));
+        admin->setWindowTitle(QCoreApplication::translate("admin", "\347\256\241\347\220\206\345\221\230\347\225\214\351\235\242", nullptr));
         label->setText(QCoreApplication::translate("admin", "\350\275\246\350\276\206\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         label_2->setText(QCoreApplication::translate("admin", "\347\256\241\347\220\206\345\221\230\347\225\214\351\235\242", nullptr));
         pushButton->setText(QCoreApplication::translate("admin", "\351\200\200\345\207\272", nullptr));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QCoreApplication::translate("admin", "\345\272\217\345\217\267", nullptr));
-        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
-        ___qtablewidgetitem1->setText(QCoreApplication::translate("admin", "\350\275\246\347\211\214\345\217\267", nullptr));
-        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
-        ___qtablewidgetitem2->setText(QCoreApplication::translate("admin", "\345\236\213\345\217\267", nullptr));
-        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
-        ___qtablewidgetitem3->setText(QCoreApplication::translate("admin", "\345\271\264\344\273\275", nullptr));
-        QTableWidgetItem *___qtablewidgetitem4 = tableWidget->horizontalHeaderItem(4);
-        ___qtablewidgetitem4->setText(QCoreApplication::translate("admin", "\351\242\234\350\211\262", nullptr));
         pushButton_2->setText(QCoreApplication::translate("admin", "\346\267\273\345\212\240", nullptr));
         pushButton_3->setText(QCoreApplication::translate("admin", "\345\210\240\351\231\244", nullptr));
         pushButton_4->setText(QCoreApplication::translate("admin", "\344\277\256\346\224\271", nullptr));

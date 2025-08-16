@@ -12,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     admin.cpp \
     carsql.cpp \
+    dlg_add.cpp \
     main.cpp \
     login.cpp \
     user.cpp
@@ -19,11 +20,13 @@ SOURCES += \
 HEADERS += \
     admin.h \
     carsql.h \
+    dlg_add.h \
     login.h \
     user.h
 
 FORMS += \
     admin.ui \
+    dlg_add.ui \
     login.ui \
     user.ui
 

@@ -13,6 +13,23 @@ admin::admin(QWidget *parent)
     //数据库指针初始化并链接数据库
     m_ptrSql = carSql::getInstance();
     m_ptrSql->init();
+
+    updateTable();
+
+}
+
+admin::~admin()
+{
+    delete ui;
+}
+
+void admin::updateTable()
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->setColumnCount(5);
+    QStringList l;
+    l<<"序号"<<"车牌号"<<"型号"<<"年份"<<"颜色";
+    ui->tableWidget->setHorizontalHeaderLabels(l);
     //获取所有汽车信息并显示
     QList<carInfo> infoList = m_ptrSql->getAllInfo();
     // ui->tableWidget->clear();
@@ -28,14 +45,17 @@ admin::admin(QWidget *parent)
 
 }
 
-admin::~admin()
-{
-    delete ui;
-}
-
 
 void admin::on_pushButton_clicked()
 {
     exit(0);
 }
+
+
+void admin::on_pushButton_2_clicked()
+{
+    m_dlgAdd.exec();
+    updateTable();
+}
+
 

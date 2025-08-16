@@ -1,10 +1,12 @@
 debug/admin.o
 debug/carsql.o
+debug/dlg_add.o
 debug/main.o
 debug/login.o
 debug/user.o
 debug/qrc_res.o
 debug/moc_admin.o
 debug/moc_carsql.o
+debug/moc_dlg_add.o
 debug/moc_login.o
 debug/moc_user.o
