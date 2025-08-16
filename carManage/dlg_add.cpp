@@ -32,6 +32,5 @@ void Dlg_Add::on_btn_save_clicked()
     ptr->addCar(info);
     QMessageBox::information(nullptr,"提示","添加成功");
     this->hide();
-
 }
 

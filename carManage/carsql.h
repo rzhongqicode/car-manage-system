@@ -12,7 +12,6 @@ public:
     QString model;
     uint16_t year;
     QString color;
-
 };
 
 class carSql : public QObject

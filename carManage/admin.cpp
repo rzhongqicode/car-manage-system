@@ -2,6 +2,7 @@
 #include "ui_admin.h"
 
 #include <QKeyEvent>
+#include <QMessageBox>
 
 admin::admin(QWidget *parent)
     : QMainWindow(parent)
@@ -9,6 +10,8 @@ admin::admin(QWidget *parent)
     , m_ptrSql(nullptr)
 {
     ui->setupUi(this);
+    ui->tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     //数据库指针初始化并链接数据库
     m_ptrSql = carSql::getInstance();
@@ -58,4 +61,16 @@ void admin::on_pushButton_2_clicked()
     updateTable();
 }
 
+
+
+void admin::on_pushButton_3_clicked()
+{
+    int i = ui->tableWidget->currentRow();
+    if(i >= 0){
+        QString del_license = ui->tableWidget->item(i,1)->text();
+        m_ptrSql->delCar(del_license);
+        QMessageBox::information(nullptr, tr("提示"),tr("删除成功"));
+        updateTable();
+    }
+}
 

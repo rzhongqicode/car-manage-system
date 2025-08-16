@@ -24,10 +24,13 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_pushButton_3_clicked();
+
 private:
     Ui::admin *ui;
     carSql* m_ptrSql;
     Dlg_Add m_dlgAdd;
+    bool isAdd;
 };
 
 #endif // ADMIN_H
