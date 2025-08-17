@@ -38,7 +38,7 @@ public:
     QLabel *label_2;
     QPushButton *pushButton;
     QTableWidget *tableWidget;
-    QWidget *layoutWidget;
+    QWidget *widget1;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
@@ -51,8 +51,9 @@ public:
     {
         if (admin->objectName().isEmpty())
             admin->setObjectName("admin");
-        admin->resize(806, 600);
-        admin->setMinimumSize(QSize(800, 480));
+        admin->resize(800, 600);
+        admin->setMinimumSize(QSize(800, 600));
+        admin->setMaximumSize(QSize(800, 600));
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/icon.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
         admin->setWindowIcon(icon);
@@ -112,33 +113,32 @@ public:
         tableWidget->verticalHeader()->setMinimumSectionSize(23);
         tableWidget->verticalHeader()->setDefaultSectionSize(36);
         tableWidget->verticalHeader()->setStretchLastSection(false);
-        layoutWidget = new QWidget(centralwidget);
-        layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(40, 60, 731, 41));
-        horizontalLayout_3 = new QHBoxLayout(layoutWidget);
+        widget1 = new QWidget(centralwidget);
+        widget1->setObjectName("widget1");
+        widget1->setGeometry(QRect(40, 60, 731, 41));
+        horizontalLayout_3 = new QHBoxLayout(widget1);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
-        horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(layoutWidget);
+        pushButton_2 = new QPushButton(widget1);
         pushButton_2->setObjectName("pushButton_2");
 
         horizontalLayout_3->addWidget(pushButton_2);
 
-        pushButton_3 = new QPushButton(layoutWidget);
+        pushButton_3 = new QPushButton(widget1);
         pushButton_3->setObjectName("pushButton_3");
 
         horizontalLayout_3->addWidget(pushButton_3);
 
-        pushButton_4 = new QPushButton(layoutWidget);
+        pushButton_4 = new QPushButton(widget1);
         pushButton_4->setObjectName("pushButton_4");
 
         horizontalLayout_3->addWidget(pushButton_4);
 
-        le_search = new QLineEdit(layoutWidget);
+        le_search = new QLineEdit(widget1);
         le_search->setObjectName("le_search");
 
         horizontalLayout_3->addWidget(le_search);
 
-        btn_search = new QPushButton(layoutWidget);
+        btn_search = new QPushButton(widget1);
         btn_search->setObjectName("btn_search");
 
         horizontalLayout_3->addWidget(btn_search);
