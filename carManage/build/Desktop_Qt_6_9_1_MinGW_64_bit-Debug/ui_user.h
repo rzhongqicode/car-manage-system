@@ -10,6 +10,7 @@
 #define UI_USER_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -26,10 +27,10 @@ class Ui_user
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *btn_search;
+    QPushButton *btn_exit;
     QTableWidget *tableWidget;
-    QLineEdit *lineEdit;
+    QLineEdit *le_search;
     QLabel *label;
     QLabel *label_2;
     QStatusBar *statusbar;
@@ -41,20 +42,27 @@ public:
         user->resize(800, 600);
         user->setMinimumSize(QSize(800, 600));
         user->setMaximumSize(QSize(800, 600));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icon.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        user->setWindowIcon(icon);
         centralwidget = new QWidget(user);
         centralwidget->setObjectName("centralwidget");
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(653, 70, 117, 23));
-        pushButton_2 = new QPushButton(centralwidget);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(675, 18, 118, 23));
+        btn_search = new QPushButton(centralwidget);
+        btn_search->setObjectName("btn_search");
+        btn_search->setGeometry(QRect(653, 70, 117, 23));
+        btn_exit = new QPushButton(centralwidget);
+        btn_exit->setObjectName("btn_exit");
+        btn_exit->setGeometry(QRect(675, 18, 118, 23));
         tableWidget = new QTableWidget(centralwidget);
         tableWidget->setObjectName("tableWidget");
         tableWidget->setGeometry(QRect(40, 110, 731, 471));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(412, 70, 235, 23));
+        tableWidget->horizontalHeader()->setMinimumSectionSize(30);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(138);
+        tableWidget->horizontalHeader()->setStretchLastSection(true);
+        tableWidget->verticalHeader()->setVisible(false);
+        le_search = new QLineEdit(centralwidget);
+        le_search->setObjectName("le_search");
+        le_search->setGeometry(QRect(412, 70, 235, 23));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
         label->setGeometry(QRect(275, 9, 261, 43));
@@ -81,9 +89,9 @@ public:
 
     void retranslateUi(QMainWindow *user)
     {
-        user->setWindowTitle(QCoreApplication::translate("user", "MainWindow", nullptr));
-        pushButton->setText(QCoreApplication::translate("user", "\346\220\234\347\264\242", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("user", "\351\200\200\345\207\272", nullptr));
+        user->setWindowTitle(QCoreApplication::translate("user", "\347\224\250\346\210\267\347\225\214\351\235\242", nullptr));
+        btn_search->setText(QCoreApplication::translate("user", "\346\220\234\347\264\242", nullptr));
+        btn_exit->setText(QCoreApplication::translate("user", "\351\200\200\345\207\272", nullptr));
         label->setText(QCoreApplication::translate("user", "\350\275\246\350\276\206\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         label_2->setText(QCoreApplication::translate("user", "\347\224\250\346\210\267\347\225\214\351\235\242", nullptr));
     } // retranslateUi

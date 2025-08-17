@@ -51,16 +51,20 @@ public:
         label->setAlignment(Qt::AlignmentFlag::AlignCenter);
         widget = new QWidget(login);
         widget->setObjectName("widget");
-        widget->setGeometry(QRect(50, 170, 300, 60));
+        widget->setGeometry(QRect(50, 180, 300, 80));
         gridLayout = new QGridLayout(widget);
         gridLayout->setObjectName("gridLayout");
+        gridLayout->setContentsMargins(0, 0, 0, 0);
         button_admin = new QPushButton(widget);
         button_admin->setObjectName("button_admin");
+        button_admin->setMinimumSize(QSize(0, 30));
 
         gridLayout->addWidget(button_admin, 0, 1, 1, 1);
 
         button_user = new QPushButton(widget);
         button_user->setObjectName("button_user");
+        button_user->setEnabled(true);
+        button_user->setMinimumSize(QSize(0, 30));
 
         gridLayout->addWidget(button_user, 0, 0, 1, 1);
 
@@ -76,7 +80,7 @@ public:
 
     void retranslateUi(QWidget *login)
     {
-        login->setWindowTitle(QCoreApplication::translate("login", "login", nullptr));
+        login->setWindowTitle(QCoreApplication::translate("login", "\347\231\273\345\275\225\347\225\214\351\235\242", nullptr));
         label->setText(QCoreApplication::translate("login", "\346\254\242\350\277\216\347\231\273\345\275\225\350\275\246\350\276\206\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         button_admin->setText(QCoreApplication::translate("login", "\347\256\241\347\220\206\345\221\230", nullptr));
         button_user->setText(QCoreApplication::translate("login", "\346\231\256\351\200\232\347\224\250\346\210\267", nullptr));
