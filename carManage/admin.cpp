@@ -1,6 +1,5 @@
 #include "admin.h"
 #include "ui_admin.h"
-
 #include <QKeyEvent>
 #include <QMessageBox>
 
@@ -18,7 +17,6 @@ admin::admin(QWidget *parent)
     m_ptrSql->init();
 
     updateTable();
-
 }
 
 admin::~admin()
@@ -114,6 +112,7 @@ void admin::on_btn_search_clicked()
         updateTable();
         return;
     }
+    //先按照车牌号进行查找
     for(int i = 0; i < infoList.length(); i++){
         if(infoList[i].license.contains(strSearch))
         {
@@ -126,8 +125,23 @@ void admin::on_btn_search_clicked()
             cnt++;
         }
     }
-    if(cnt == 0){
-        QMessageBox::information(nullptr,"提示","没有找到相关车辆");
-        updateTable();
+    if(cnt == 0){//如果车牌号没有匹配的，再在型号中进行查找
+        for(int i = 0; i < infoList.length(); i++){
+            if(infoList[i].model.contains(strSearch))
+            {
+                ui->tableWidget->setRowCount(cnt + 1);
+                ui->tableWidget->setItem(cnt,0,new QTableWidgetItem(QString::number(cnt + 1)));
+                ui->tableWidget->setItem(cnt,1,new QTableWidgetItem(infoList[i].license));
+                ui->tableWidget->setItem(cnt,2,new QTableWidgetItem(infoList[i].model));
+                ui->tableWidget->setItem(cnt,3,new QTableWidgetItem(QString::number(infoList[i].year)));
+                ui->tableWidget->setItem(cnt,4,new QTableWidgetItem(infoList[i].color));
+                cnt++;
+            }
+        }
+        //车牌号和型号都没有找到，提示
+        if(0 == cnt){
+            QMessageBox::information(nullptr,"提示","没有找到相关车辆");
+            updateTable();
+        }
     }
 }

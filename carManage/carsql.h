@@ -1,12 +1,32 @@
 #ifndef CARSQL_H
 #define CARSQL_H
-
 #include <QObject>
 #include <QSqlDatabase>
 
+class Item{
+public:
+    virtual QString GetName() = 0;
+private:
+    QString name;
+};
+
+class Number{
+public:
+    uint8_t value;
+};
+
 
 //定义车辆类
-class carInfo{
+class carInfo: public Item, public Number{
+public:
+    virtual QString GetName(){
+        return this->license;
+    }
+
+    uint16_t operator-(const carInfo& p2) {
+        return this->year - p2.year;
+     }
+
 public:
     QString license;
     QString model;
@@ -19,7 +39,6 @@ class carSql : public QObject
     Q_OBJECT
 public:
     explicit carSql(QObject *parent = nullptr);
-
     //定义一个静态指针
     static carSql* ptrcarSql;
 

@@ -10,6 +10,7 @@
 #define UI_DLG_UPDATE_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
@@ -45,6 +46,9 @@ public:
         dlg_update->resize(220, 200);
         dlg_update->setMinimumSize(QSize(220, 200));
         dlg_update->setMaximumSize(QSize(220, 200));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icon.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        dlg_update->setWindowIcon(icon);
         gridLayout_2 = new QGridLayout(dlg_update);
         gridLayout_2->setObjectName("gridLayout_2");
         label = new QLabel(dlg_update);

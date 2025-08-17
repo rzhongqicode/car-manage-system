@@ -10,6 +10,7 @@
 #define UI_DLG_ADD_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
@@ -45,6 +46,9 @@ public:
         Dlg_Add->resize(220, 200);
         Dlg_Add->setMinimumSize(QSize(220, 200));
         Dlg_Add->setMaximumSize(QSize(220, 200));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/icon.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        Dlg_Add->setWindowIcon(icon);
         gridLayout_2 = new QGridLayout(Dlg_Add);
         gridLayout_2->setObjectName("gridLayout_2");
         label_3 = new QLabel(Dlg_Add);

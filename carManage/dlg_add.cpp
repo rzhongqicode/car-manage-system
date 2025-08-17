@@ -31,6 +31,10 @@ void Dlg_Add::on_btn_save_clicked()
     info.year = ui->sb_year->text().toUInt();
     ptr->addCar(info);
     QMessageBox::information(nullptr,"提示","添加成功");
+    ui->le_license->clear();
+    ui->le_model->clear();
+    ui->le_color->clear();
+    ui->sb_year->clear();
     this->hide();
 }
 
