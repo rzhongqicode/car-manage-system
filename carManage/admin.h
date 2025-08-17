@@ -29,6 +29,8 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_btn_search_clicked();
+
 private:
     Ui::admin *ui;
     carSql* m_ptrSql;

@@ -98,3 +98,37 @@ void admin::on_pushButton_4_clicked()
     }
 }
 
+
+void admin::on_btn_search_clicked()
+{
+    ui->tableWidget->clear();
+    ui->tableWidget->setColumnCount(5);
+    QStringList l;
+    l<<"序号"<<"车牌号"<<"型号"<<"年份"<<"颜色";
+    ui->tableWidget->setHorizontalHeaderLabels(l);
+    QList<carInfo> infoList = m_ptrSql->getAllInfo();
+    int cnt = 0;
+    auto strSearch = ui->le_search->text();
+    if(strSearch.isEmpty()){
+        QMessageBox::information(nullptr,"提示","请输入要搜索的内容");
+        updateTable();
+        return;
+    }
+    for(int i = 0; i < infoList.length(); i++){
+        if(infoList[i].license.contains(strSearch))
+        {
+            ui->tableWidget->setRowCount(cnt + 1);
+            ui->tableWidget->setItem(cnt,0,new QTableWidgetItem(QString::number(cnt + 1)));
+            ui->tableWidget->setItem(cnt,1,new QTableWidgetItem(infoList[i].license));
+            ui->tableWidget->setItem(cnt,2,new QTableWidgetItem(infoList[i].model));
+            ui->tableWidget->setItem(cnt,3,new QTableWidgetItem(QString::number(infoList[i].year)));
+            ui->tableWidget->setItem(cnt,4,new QTableWidgetItem(infoList[i].color));
+            cnt++;
+        }
+    }
+    if(cnt == 0){
+        QMessageBox::information(nullptr,"提示","没有找到相关车辆");
+        updateTable();
+    }
+}
+

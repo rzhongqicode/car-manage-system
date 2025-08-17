@@ -43,8 +43,8 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton_5;
+    QLineEdit *le_search;
+    QPushButton *btn_search;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *admin)
@@ -133,15 +133,15 @@ public:
 
         horizontalLayout_3->addWidget(pushButton_4);
 
-        lineEdit = new QLineEdit(layoutWidget);
-        lineEdit->setObjectName("lineEdit");
+        le_search = new QLineEdit(layoutWidget);
+        le_search->setObjectName("le_search");
 
-        horizontalLayout_3->addWidget(lineEdit);
+        horizontalLayout_3->addWidget(le_search);
 
-        pushButton_5 = new QPushButton(layoutWidget);
-        pushButton_5->setObjectName("pushButton_5");
+        btn_search = new QPushButton(layoutWidget);
+        btn_search->setObjectName("btn_search");
 
-        horizontalLayout_3->addWidget(pushButton_5);
+        horizontalLayout_3->addWidget(btn_search);
 
         horizontalLayout_3->setStretch(0, 1);
         horizontalLayout_3->setStretch(1, 1);
@@ -167,7 +167,7 @@ public:
         pushButton_2->setText(QCoreApplication::translate("admin", "\346\267\273\345\212\240", nullptr));
         pushButton_3->setText(QCoreApplication::translate("admin", "\345\210\240\351\231\244", nullptr));
         pushButton_4->setText(QCoreApplication::translate("admin", "\344\277\256\346\224\271", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("admin", "\346\220\234\347\264\242", nullptr));
+        btn_search->setText(QCoreApplication::translate("admin", "\346\220\234\347\264\242", nullptr));
     } // retranslateUi
 
 };
