@@ -72,6 +72,9 @@ void admin::on_pushButton_3_clicked()
         QMessageBox::information(nullptr, tr("提示"),tr("删除成功"));
         updateTable();
     }
+    else{
+        QMessageBox::information(nullptr, tr("提示"),tr("请选中你要删除的车辆"));
+    }
 }
 
 
@@ -79,6 +82,7 @@ void admin::on_pushButton_3_clicked()
 void admin::on_pushButton_4_clicked()
 {
     int i = ui->tableWidget->currentRow();
+    if(i >= 0){
     carInfo original_info;
     original_info.license = ui->tableWidget->item(i,1)->text();
     original_info.model = ui->tableWidget->item(i,2)->text();
@@ -87,5 +91,10 @@ void admin::on_pushButton_4_clicked()
     m_dlgUpdate.setState(original_info);
     m_dlgUpdate.exec();
     updateTable();
+    }
+    else
+    {
+        QMessageBox::information(nullptr, tr("提示"),tr("请选中你要修改的车辆"));
+    }
 }
 
