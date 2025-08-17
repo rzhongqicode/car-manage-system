@@ -46,11 +46,11 @@ void carSql::init()
     //创建数据库链接
     my_database = QSqlDatabase::addDatabase("QSQLITE");
     //获取应用程序文件夹目录
-#if 0
-    auto str =QCoreApplication::applicationDirPath();
-    qDebug()<<str;
-#endif
-    my_database.setDatabaseName("E:\\carData.db");
+
+    auto str =QCoreApplication::applicationDirPath() + "/carData.db";
+
+    //my_database.setDatabaseName("E:\\carData.db");
+    my_database.setDatabaseName(str);
     if(!my_database.open()){
         // QMessageBox::warning(nullptr, tr("Unable to open database"),tr("Try again"));
         qDebug()<<"Unable to open database";
